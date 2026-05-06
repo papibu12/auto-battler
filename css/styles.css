@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body{
+    background-color: #6a6a9f;
+    overflow: hidden;
+	--sacle: 1.00; 
+}
+
+/******************************
+	Plateau, Boutique et main
+******************************/
+.shop, .board, .hand {
+    display: flex;
+	justify-content: center;
+	width: max-content;
+}
+
+.board, .shop, .hand{
+	height: calc(140px * var(--sacle));
+	width: 100%;
+	border: 2px solid black;
+}
+
+/******************************
+	Carte
+******************************/
+.card-wrapper {
+	min-width: 0;
+	margin: 0 10px;
+	z-index: 2;
+	touch-action: none;
+}
+
+.card {
+	width: calc(100px * var(--sacle)); /*150px*/
+	height: calc(140px * var(--sacle)); /*210px*/
+	border-radius: calc(8px * var(--sacle)); /*8px*/
+	box-shadow: calc(-2px * var(--sacle)) calc(2px * var(--sacle)) calc(6px * var(--sacle)) rgba(0,0,0,0.5);
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border: calc(8px * var(--sacle)) solid white; /*12px*/
+	position: relative;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.card-level, .card-attack, .card-health, .card-type {
+	position: absolute;
+	color: black;
+	font-family: "Rubik", sans-serif;
+	font-size: calc(16px * var(--sacle)); /*24px*/
+}
+
+.card-level {
+	top: 4px;
+	left: 4px;
+}
+
+.card-attack{
+	bottom: -4px;
+	left: 4px;
+}
+
+.card-health{
+	bottom: -4px;
+	right: 4px;
+}
+
+.card-type{
+	bottom: -10px;
+	right: 0px;
+	left: 0px;
+	margin-inline: auto;
+	width: fit-content;
+	font-size: calc(8px * var(--sacle)); /*24px*/
+	background-color: darkgray;
+	border-radius: calc(2px * var(--sacle));
+	padding:  2px 4px;
+}
+
+.card-upper-half{
+	height: calc(74px * var(--sacle)); /*140 - 16*/
+	background-color: lightgrey;
+}
+
+.card-upper-half > img{
+	max-width: 100%;
+	height: 100%;
+	object-fit: cover;
+	margin: auto;
+	display: block;
+	z-index: 1;
+}
+
+.card-lower-half{
+	height: calc(50px * var(--sacle));
+	text-align: center;
+	color: black;
+	font-family: "Rubik", sans-serif;
+	font-size: calc(8px * var(--sacle));
+	background-color: gray;
+}
+
+.card-lower-half > .text{
+	padding-top: 10px;
+}
+
+.card-bottom {
+	bottom: 4px;
+	right: 8px;
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+.card-center {
+	position: absolute;
+	top: calc(18px * var(--sacle)); /*26px*/
+	left: calc(8px * var(--sacle)); /*12px*/
+	right: calc(8px * var(--sacle)); /*12px*/
+	bottom: calc(18px * var(--sacle)); /*24px*/
+	line-height: calc(88px * var(--sacle)); /*132px*/
+	border-top-left-radius: 34px; /*34px*/
+	border-bottom-right-radius: 34px; /*34px*/
+	font-family: "Rubik", sans-serif;
+	font-size: calc(56px * var(--sacle)); /*84px*/
+	font-weight: 500;
+	text-align: center;
+	background-color: white;
+}
+
+.card-color{
+	background-color: green;
+
+}
+.card-color .card-center{
+	color: green;
+}
+
+.card-back {
+    background-color: white;
+}
+
+.card-back .card-center {
+    background-color: #630050;
+    color: white;
+    left: 2px;
+    right: 2px;
+    top: 2px;
+    bottom: 2px;
+    font-size: calc(32px * var(--sacle)); /*40px*/
+    line-height: calc(108px * var(--sacle)); /*164px*/
+}
+
+/******************************
+	Boutique
+******************************/
+.new-shop{
+	position:absolute;
+	top: 12px;
+	right: 8px;
+	background-color: #630050;
+	color: white;
+	font-weight: bold;
+	font-family: "Rubik", sans-serif;
+	font-size: calc(8px * var(--sacle));
+	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 5px;
+	z-index: 10;
+}
+
+.new-shop:hover{
+	background-color: green;
+	border: 1px solid black;
+}
+
+.shop-timer{
+	display: flex;
+	position:absolute;
+	top: 60px;
+	right: 8px;
+	background-color: #630050;
+	color: white;
+	font-weight: bold;
+	font-family: "Rubik", sans-serif;
+	font-size: calc(8px * var(--sacle));
+	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 5px;
+	align-items: center;
+	justify-content: center;
+}
+
+.shop-level{
+	display: flex;
+	position:absolute;
+	top: 108px;
+	right: 8px;
+	background-color: #630050;
+	color: white;
+	font-weight: bold;
+	font-family: "Rubik", sans-serif;
+	font-size: calc(8px * var(--sacle));
+	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 5px;
+	align-items: center;
+	justify-content: center;
+}
+
+.gold-display{
+	display: flex;
+	position:absolute;
+	top: 156px;
+	right: 8px;
+	background-color: #FFD700;
+	color: white;
+	font-weight: bold;
+	font-family: "Rubik", sans-serif;
+	font-size: calc(8px * var(--sacle));
+	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 5px;
+	align-items: center;
+	justify-content: center;
+}
